@@ -47,10 +47,9 @@ function Ppm {
                 New-Item -Path (Join-Path $InstallPath $Folder) -ItemType Directory | Out-Null
             } 
             Get-Date | Out-File -Encoding UTF8 -FilePath "$($InstallPath)/Installed.txt"
-
-            if (!(Test-Path("$($Path)/Config/Ppm.key"))) {
-                Set-PsctCryptKey -KeyPath (Join-Path $InstallPath "Config\Ppm.key")
-            }
+        }
+        if (!(Test-Path("$($Path)/Config/Ppm.key"))) {
+            Set-PsctCryptKey -KeyPath (Join-Path $InstallPath "Config\Ppm.key")
         }
         if ($PSBoundParameters['Profil']) {
             $User = $PSBoundParameters['Profil']

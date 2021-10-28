@@ -22,6 +22,12 @@ Download latest realease: [github.com/HiteaFR/PsPassManager/releases/latest](htt
 
 - Windows 10 / Windows Server 2016 / Windows Server 2019
 
+### AMSI
+
+Si votre antivirus utilise l'intégration d’analyse de logiciel anti-programmes malveillants (AMSI)
+
+Il faudra déactiver la fonctionnalité si les fonctions de chiffrement sont bloquées.
+
 ## Installation
 
 ### From PowerShell Gallery
