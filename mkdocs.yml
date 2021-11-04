@@ -1,0 +1,23 @@
+site_name: PsPassManager
+
+theme:
+  name: "material"
+  feature:
+    tabs: true
+  palette:
+    primary: "amber"
+    accent: "deep orange"
+
+markdown_extensions:
+  - codehilite
+  - admonition
+  - meta
+
+repo_name: HiteaFR/PsPassManager
+
+repo_url: https://github.com/HiteaFR/PsPassManager
+
+extra:
+  social:
+    - type: github
+      link: https://github.com/HiteaFR/PsPassManager
