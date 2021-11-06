@@ -1,6 +1,15 @@
-# Getting started
+# Intro
 
 PsPassManager est un module créer pour stocker vos identifiants (Windows / Powershell / M365 par exemple)
+
+Venez nous soutenir sur les Réseaux et Youtube :)
+
+- https://hitea.fr/
+- https://www.youtube.com/channel/UCt30dovkjqINMeh0p5DUoVQ?sub_confirmation=1
+- https://www.facebook.com/hitea.fr
+- https://twitter.com/HiteaFR
+- https://www.linkedin.com/company/hitea-fr
+- https://github.com/HiteaFR
 
 ## Read the doc
 
