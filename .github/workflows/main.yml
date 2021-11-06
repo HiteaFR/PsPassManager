@@ -11,5 +11,5 @@ jobs:
 
       - name: Publishing
         run: |
-          Publish-Module -Path '/PsPassManager' -NuGetApiKey ${{ secrets.PS_GALLERY_KEY }}
+          Publish-Module -Path 'PsPassManager' -NuGetApiKey ${{ secrets.PS_GALLERY_KEY }}
         shell: pwsh
