@@ -4,32 +4,20 @@ PsPassManager est un module créer pour stocker vos identifiants (Windows / Powe
 
 Venez nous soutenir sur les Réseaux et Youtube :)
 
-- https://hitea.fr/
-- https://www.youtube.com/channel/UCt30dovkjqINMeh0p5DUoVQ?sub_confirmation=1
-- https://www.facebook.com/hitea.fr
-- https://twitter.com/HiteaFR
-- https://www.linkedin.com/company/hitea-fr
-- https://github.com/HiteaFR
+- [Hitea.fr](https://hitea.fr/)
+- [Youtube](https://www.youtube.com/channel/UCt30dovkjqINMeh0p5DUoVQ?sub_confirmation=1)
+- [Facebook](https://www.facebook.com/hitea.fr)
+- [Twitter](https://twitter.com/HiteaFR)
+- [Linkedin](https://www.linkedin.com/company/hitea-fr)
+- [GitHub](https://github.com/HiteaFR)
 
-## Read the doc
+## Documentation
 
-The documentation is build master branch. [HiteaFR.github.io/PsPassManager](https://HiteaFR.github.io/PsPassManager)
+Toute la documentation: [HiteaFR.github.io/PsPassManager](https://HiteaFR.github.io/PsPassManager)
 
-## Download
+## Prérequis
 
-Download latest realease: [github.com/HiteaFR/PsPassManager/releases/latest](https://github.com/HiteaFR/PsPassManager/releases/latest)
-
-## Requirements
-
-### Minimal
-
-- Windows 7 SP1 / Windows Server 2008 R2 SP1
-
-- [Windows Management Framework 5.1](https://www.microsoft.com/en-us/download/details.aspx?id=54616)
-
-### Recommended
-
-- Windows 10 / Windows Server 2016 / Windows Server 2019
+Windows 10+ / Windows Server 2016+
 
 ### AMSI
 
@@ -39,25 +27,27 @@ Il faudra déactiver la fonctionnalité si les fonctions de chiffrement sont blo
 
 ## Installation
 
-### From PowerShell Gallery
+### PowerShell Gallery
+
+Page du Module: [powershellgallery.com/packages/PsPassManager](https://www.powershellgallery.com/packages/PsPassManager
 
 ```powershell
     Install-Module -Name PsPassManager
 ```
 
-See module page: [powershellgallery.com/packages/PsPassManager](https://www.powershellgallery.com/packages/PsPassManager
+### Dépot Git
 
-### From Source
-
-Clone the repository :
-
-```
+```powershell
     Git clone https://github.com/HiteaFR/PsPassManager.git
+
+    Set-ExecutionPolicy Bypass -Scope Process -Force
+
+    Import-Module -FullyQualifiedName [CHEMIN_VERS_LE_MODULE] -Force -Verbose
 ```
 
-Or download the latest release : [github.com/HiteaFR/PsPassManager/releases/latest](https://github.com/HiteaFR/PsPassManager/releases/latest)
+### Téléchargement
 
-Run Powershell as Administrator :
+Télécharger la dernière version : [github.com/HiteaFR/PsPassManager/releases/latest](https://github.com/HiteaFR/PsPassManager/releases/latest)
 
 ```powershell
     Set-ExecutionPolicy Bypass -Scope Process -Force
@@ -65,7 +55,7 @@ Run Powershell as Administrator :
     Import-Module -FullyQualifiedName [CHEMIN_VERS_LE_MODULE] -Force -Verbose
 ```
 
-## Usage
+## Utilisation
 
 ```powershell
     # Enregistrer un identifiant
