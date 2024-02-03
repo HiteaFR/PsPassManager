@@ -28,7 +28,7 @@ function Save-PsctProfile() {
         [ValidateNotNullOrEmpty()]
         $Profil
     )
-    $Path = Join-Path $env:LOCALAPPDATA ( "Hitea\Ppm\Profil\" + $Profil.Name + ".json")
+    $Path = Join-Path $env:LOCALAPPDATA ( "Hitea\Ppm\profil\" + $Profil.Name + ".json")
     $Excluded = @('Filename')
     $Profil | Select-Object -Property * -ExcludeProperty $Excluded | ConvertTo-Json | Set-Content -Encoding UTF8 -Path $Path
     Write-Verbose -Message "Config file saved !"
@@ -58,7 +58,13 @@ function Show-PsctNotification {
     Add-Type -AssemblyName System.Drawing
 
     $notify = new-object system.windows.forms.notifyicon
-    $notify.icon = [system.drawing.icon]::ExtractAssociatedIcon((join-path $pshome powershell.exe))
+    if($PSVersionTable.PSVersion.Major -eq 5) {
+        $notify.icon = [system.drawing.icon]::ExtractAssociatedIcon((join-path $pshome powershell.exe))
+    }
+    elseif($PSVersionTable.PSVersion.Major -eq 7) {
+        $notify.icon = [system.drawing.icon]::ExtractAssociatedIcon((join-path $pshome pwsh.exe))
+    }
+
     $notify.visible = $True
 
     $notify.showballoontip($Timeout, $title, $text, $type)

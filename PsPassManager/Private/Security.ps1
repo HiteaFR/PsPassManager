@@ -3,9 +3,9 @@ function Get-HtValidateString {
     [OutputType([bool], [PSCredential])]
     [CmdletBinding()]
     param (
-        [uint16]$MaxTry = 3,
+        [UInt16]$MaxTry = 3,
         [Parameter(Mandatory = $true)]
-        [ValidateSet('Email', 'String')]
+        [ValidateSet('Email', 'String', 'Int')]
         [ValidateNotNullOrEmpty()]
         $Type,
         [Parameter(Mandatory = $false)]
@@ -18,10 +18,13 @@ function Get-HtValidateString {
             $Regex = "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"
         }
         "String" { 
-            $Regex = "^[a-z]{2,}\d*$"
+            $Regex = ""
         }
         "Int" {
             $Regex = "[0-9]"
+        }
+        "Password" {
+            $Regex = ""
         }
         Default { return $false }
     }
@@ -33,19 +36,18 @@ function Get-HtValidateString {
                 $UserPrincipalName = Read-Host "$($HelpMessage) [$($Type)]: "
             }
             else {
-                $UserPrincipalName = Read-Host "Enter a $($Type): "
+                $UserPrincipalName = Read-Host "Enter a(n) $($Type): "
             }
         
             
             if ($UserPrincipalName -match $Regex) {
                 
                 Write-Verbose -Message "$($Type) match the regex."
-                $UserPrincipalName
-                break
+                return $UserPrincipalName
             }
             if ($Counter -lt $MaxTry) {
         
-                Write-Warning -Message "$($Type) does not match a valid input, please provide a corrent $($Type)."
+                Write-Warning -Message "$($Type) does not match a valid input, please provide a correct $($Type)."
                 Write-Warning -Message ("Try {0} of {1}" -f ($Counter + 1), $MaxTry)
             }
             elseif ($Counter -ge $MaxTry) {

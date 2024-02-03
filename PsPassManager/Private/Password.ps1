@@ -22,12 +22,12 @@ function Get-PsctCredential {
         $InClear = $false
     )
 
-    if (!(Join-Path $env:LOCALAPPDATA ( "Hitea\Ppm\Profil\" + $User + ".json"))) {
+    if (!(Join-Path $env:LOCALAPPDATA ( "Hitea\Ppm\profil\" + $User + ".json"))) {
         return $false
     }
     else {
-        $PsctCred = (Get-Content (Join-Path $env:LOCALAPPDATA ( "Hitea\Ppm\Profil\" + $User + ".json")) | Out-String | ConvertFrom-Json)
-        $Password = $PsctCred.("password") | ConvertTo-SecureString -Key (Get-Content (Join-Path $env:LOCALAPPDATA ( "Hitea\Ppm\Config\Ppm.key")))
+        $PsctCred = (Get-Content (Join-Path $env:LOCALAPPDATA ( "Hitea\Ppm\profil\" + $User + ".json")) | Out-String | ConvertFrom-Json)
+        $Password = $PsctCred.("password") | ConvertTo-SecureString -Key (Get-Content (Join-Path $env:LOCALAPPDATA ( "Hitea\Ppm\config\Ppm.key")))
         if ($InClear -eq $true) {
             $BSTR = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($Password)
             $Password = [System.Runtime.InteropServices.Marshal]::PtrToStringAuto($BSTR)
@@ -44,7 +44,7 @@ function Get-PsctCredential {
 
 function Get-PsctCompanies {
     
-    $PsctProfils = Get-ChildItem -Path (Join-Path $env:LOCALAPPDATA ("Hitea\Ppm\Profil\*.json"))
+    $Psctprofils = Get-ChildItem -Path (Join-Path $env:LOCALAPPDATA ("Hitea\Ppm\profil\*.json"))
     $Profils = @()
     $Num = 0
 
